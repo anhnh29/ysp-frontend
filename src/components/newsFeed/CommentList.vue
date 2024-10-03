@@ -5,9 +5,9 @@
   </template>
   
   <script lang="ts" setup>
-  import { ICommentItem } from '../types';
+  import { IComment } from '../../types';
   import CommentItem from './CommentItem.vue';
   
-  defineProps<{ comments: ICommentItem[], country: string }>();
+  defineProps<{ comments: IComment[], country: string }>();
   </script>
   

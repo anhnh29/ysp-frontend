@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ICommentItem } from '../types';
+import { IComment } from '../../types';
 import { ref } from 'vue';
 import { useTranslate } from '../../composables/useTranslate';
 
@@ -22,9 +22,9 @@ const { translate } = useTranslate();  // use composable function
 
 const showTranslation = ref(false);
 
-defineProps<{ comment: ICommentItem, country: string }>();
+defineProps<{ comment: IComment, country: string }>();
 
-const handleTranslate = async (comment: ICommentItem, country: string) => {
+const handleTranslate = async (comment: IComment, country: string) => {
   showTranslation.value = !showTranslation.value;
   if (!comment?.translatedContent) {
     await translate(comment, comment.content, 'en', country);  // translate post comment

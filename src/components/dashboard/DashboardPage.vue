@@ -9,14 +9,14 @@
     <ion-content class="content">
       <ion-grid class="grid">
         <ion-row class="header">
-          <ion-col>Image</ion-col>
           <ion-col>Title</ion-col>
+          <ion-col>Content</ion-col>
           <ion-col>Status (Approved)</ion-col>
         </ion-row>
 
         <ion-row v-for="(item) in posts" :key="item.id">
-          <ion-col><img :src="item.image" alt="image"></ion-col>
           <ion-col>{{ item.title }}</ion-col>
+          <ion-col>{{ item.content }}</ion-col>
           <ion-col>
             <div>
               <div v-if="item.status === Status.OPEN" @click="startChangeStatus(item)">open</div>
@@ -37,7 +37,7 @@ import { IPostItem, Status } from '../../types';
 
 const emit = defineEmits(['update:posts']);
 
-defineProps<{ posts: IPostItem[], country: string }>();
+defineProps<{ posts: IPostItem[] }>();
 
 const handleChangePosts = async (item: IPostItem, status?: Status) => {
   try {

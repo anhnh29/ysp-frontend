@@ -22,7 +22,7 @@ export interface IPostItem {
   title: string;
   content: string;
   comments: IComment[];
-  authorInfor: IUserInfo;
+  authorInfo: IUserInfo;
   translatedContent?: string;
   status: Status;
 }

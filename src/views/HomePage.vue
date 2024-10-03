@@ -48,7 +48,7 @@ import { IPostItem } from '../types';
 import NewsFeedPage from '../components/newsFeed/NewsFeedPage.vue';
 import DashboardPage from '../components/dashboard/DashboardPage.vue';
 import { Geolocation } from '@capacitor/geolocation';
-import { mockData } from '../services/mockApi.ts'
+import { mockData } from '../services/mockApi'
 
 
 import { playCircle, radio } from 'ionicons/icons';
@@ -70,7 +70,7 @@ const getCurrentCountry = async () => {
     const data = await response.json();
 
     // Extract the country from the API response
-    const address = data.results[0].address_components.find((component) =>
+    const address = data.results[0].address_components.find((component: any) =>
       component.types.includes('country')
     );
     if (address && address?.short_name) {
@@ -93,7 +93,7 @@ const updatePosts = (postChanged: IPostItem) => {
 
 onMounted(async () => {
   getCurrentCountry();
-  posts.push(...mockData)
+  posts.push(...mockData as IPostItem[])
 });
 
 </script>
